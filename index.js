@@ -125,6 +125,7 @@ function parseUnread() {
                   setTimeout( drewFinish, 500 );
                 }
               };
+              drewFinish( );
             }
           });
           parser.on("attachment", function (attachment) {
