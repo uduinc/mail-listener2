@@ -116,7 +116,15 @@ function parseUnread() {
                 callback()
               });
             } else {
-              self.emit('mail',mail,seqno,attributes);
+              var drewFinish = function ( )
+              {
+                if ( attributes )
+                {
+                  self.emit('mail',mail,seqno,attributes);
+                } else {
+                  setTimeout( drewFinish, 500 );
+                }
+              };
             }
           });
           parser.on("attachment", function (attachment) {
